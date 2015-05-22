@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- © 2015 Igor Lavrov, handmade with inclusion of some useful plugins -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="Lavrov Igor">
+	<title>Загрузка Расширений</title>
+	<link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+	<link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.2/darkly/bootstrap.min.css">
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+<style>
+<!--
+body, html {
+	font-family: Calibri, Arial, Helvetica, sans-serif;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+}
+
+h1 {
+	margin-top: 0;
+}
+
+p {
+	margin-bottom: 0;
+}
+
+.jumbotron {
+	background: none;
+	margin: 25px 0 0 0;
+}
+
+.row {
+	margin-left: 60px;
+}
+
+#container {
+	position: relative;
+	background-color: #fff;
+	border-radius: 20px;
+	color: #1F4E79;
+	margin: 30px auto;
+	padding: 30px 30px 75px 30px;
+	box-shadow: 0px 0px 30px #c5e5ff;
+}
+
+#container h1 {
+	margin-left: -60px;
+}
+
+#container h1 i {
+	margin-right: 10px;
+}
+
+#container p {
+	font-size: 1.1em;
+	margin-right: 30px;
+}
+
+#sources div {
+	padding: 0;
+}
+
+@media (min-width:992px) {
+	#sources #sources-links {
+		text-align: right;
+		padding: 10px 30px 0 0;
+	}
+}
+
+#container .source {
+	display: inline-block;
+	font-size: 1.3em;
+	padding: 15px;
+	border-radius: 30px;
+	color: #fff;
+	text-decoration: none;
+	vertical-align: top;
+	margin-bottom: 15px;
+	-webkit-transition: all 0.7s ease;
+	-moz-transition: all 0.7s ease;
+	-ms-transition: all 0.7s ease;
+	-o-transition: all 0.7s ease;
+	transition: all 0.7s ease;
+}
+
+#container .source i {
+	display: inline-block;
+	margin-right: 5px;
+	font-size: 1.3em;
+	padding: 2px 0 0 0;
+}
+
+#container .source span {
+	display: inline-block;
+	vertical-align: top;
+}
+
+#container .source-phpbb {
+	border: 1px solid #1F4E79;
+	background-color: #1F4E79;
+	margin-right: 15px;
+}
+
+#container .source-github {
+	border: 1px solid #4183c4;
+	background-color: #4183c4;
+}
+
+#container .source:hover {
+	border: 1px solid #D7F5DC;
+	background-color: #D7F5DC;
+	color: #1C6E26;
+	box-shadow: 0px 0px 10px #D7F5DC;
+}
+
+.row-inverse {
+	margin: 60px -30px;
+	padding: 60px 0 60px 90px;
+	background-color: #1F4E79;
+	color: #fff;
+}
+
+.row-info {
+	margin: -30px -30px 60px -30px;
+	padding: 60px 0 60px 90px;
+	background-color: #2d71af;
+	color: #fff;
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
+}
+
+.row-founders {
+	margin: 30px -30px 0px -30px;
+	padding: 60px 0 60px 90px;
+	background-color: #fcfed9;
+	color: #a75615;
+	/*color: #895214;*/
+}
+
+.row-experience {
+	margin: 30px -30px 0px -30px;
+	padding: 30px 0 30px 90px;
+}
+
+#upload_table_wrapper {
+	width: 100%;
+	padding: 0 0px;
+	margin: 0 auto;
+}
+
+.upload_table {
+	border-collapse: collapse;
+	border: none;
+	width: 100%;
+	margin-top: 25px;
+	background-color: #fff;
+}
+
+.upload_table tr:first-child td:first-child {
+	border-top-left-radius: 10px;
+}
+
+.upload_table tr:first-child td:last-child {
+	border-top-right-radius: 10px;
+}
+
+.upload_table tr:last-child td:first-child {
+	border-bottom-left-radius: 10px;
+}
+
+.upload_table tr:last-child td:last-child {
+	border-bottom-right-radius: 10px;
+}
+
+.upload_table td {
+	vertical-align: middle;
+	padding: 15px 0;
+	border: solid #1F4E79 1.1px;
+}
+
+.upload_table .upload_table_header {
+	width: 423px;
+	background: #EBF2F9;
+	padding: 1px 5px;
+	line-height: 1em;
+}
+
+.upload_table .upload_table_header span {
+	font-size: 19px;
+	font-weight: bold;
+	color: #1F4E79;
+}
+
+.upload_table .upload_table_feature_header {
+	width: 35%;
+	font-weight: bold;
+}
+
+.upload_table .upload_table_feature {
+	width: 35%;
+	background: #FBFFC5;
+	font-weight: bold;
+	font-size: 1.25em;
+	padding: 15px 10px;
+	color: #806000;
+}
+
+.upload_table .upload_table_software {
+	width: 15%;
+	text-align: center;
+	font-size: 22px;
+}
+
+.upload_table .upload_table_section {
+	/*background: #FBFFC5;*/
+	background: #1F4E79;
+	font-size: 18.0pt;
+	font-weight: bold;
+	/*color: #1F4E79;*/
+	color: #fff;
+	padding: 5px 10px;
+	/*height: 36.85pt;*/
+}
+
+.upload_table .upload_table_normal {
+	font-weight: bold;
+	color: #1F4E79;
+}
+
+.upload_table .upload_table_yes {
+	background: #D7F5DC;
+	color: #1C6E26;
+}
+
+.upload_table .upload_table_no {
+	background: #FEDDDA;
+	color: #6F231B;
+}
+
+.upload_table td.upload_table_note {
+	padding: 0;
+}
+
+.upload_table td.upload_table_note div {
+	position: relative;
+	padding: 15px 0;
+	width: 100%;
+	height: 100%;
+}
+
+.upload_table span.upload_table_note {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	padding-left: 15px;
+	margin-top: -20px;
+}
+
+.upload_table .upload_table_notes {
+	padding: 15px 10px;
+	color: #1F4E79;
+	font-weight: bold;
+}
+
+.upload_table .upload_table_notes div {
+	padding: 0;
+	margin: 0;
+}
+
+.copyright {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	font-weight: bold;
+	font-size: 1.1em;
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 20px;
+	background-color: #EBF2F9;
+	width: 100%;
+	padding: 10.5px 0 10.5px 15px;
+}
+-->
+</style>
+
+</head>
+
+<body>
+
+<div class="jumbotron">
+	<div class="container text-center">
+		<h1>Загрузка Расширений</h1>
+		<p>Создана группой людей. Вдохновлена целым сообществом.</p>
+	</div>
+</div>
+<div class="container" id="container">
+	<div class="row row-info">
+		<h1><i class="fa fa-search fa-fw"></i>Открой возможности</h1>
+		<p>Загрузка Расширений - это инструмент для ваших конференций <strong>phpBB 3.1</strong>, который делает возможной загрузку других расширений без использования FTP. В дополнение к этому данное расширение позволяет управлять загруженными расширениями и их ZIP-файлами, а также просматривать подробную информацию, когда она окажется нужной.</p>
+	</div>
+	<div class="row" id="sources">
+		<div class="col-md-7">
+			<h1><i class="fa fa-map-marker fa-fw"></i>Выбери источник</h1>
+			<p>Вы можете загрузить расширение из любого доступного источника.</p>
+		</div>
+		<div class="col-md-5" id="sources-links">
+			<a href="https://www.phpbb.com/customise/db/extension/upload/" class="source source-phpbb"><i class="fa fa-globe fa-fw"></i><span>phpbb.com</span></a><a href="https://github.com/BoardTools/upload" class="source source-github"><i class="fa fa-github fa-fw"></i><span>github.com</span></a>
+		</div>
+	</div>
+	<div class="row row-inverse">
+		<h1><i class="fa fa-cog fa-fw"></i>Осуществи установку</h1>
+		<p>Вы можете установить Загрузку Расширений на ваши конференции <strong>phpBB 3.1</strong>, следуя инструкциям <a href="https://www.phpbb.com/customise/db/extension/upload/faq">FAQ</a> или <a href="https://github.com/BoardTools/upload/wiki">Wiki</a> (в зависимости от источника, откуда вы скачивали расширение).</p>
+	</div>
+	<div class="row">
+		<h1><i class="fa fa-exchange fa-fw"></i>Сравни программные продукты</h1>
+		<p>Ощутите преимущества <strong>Загрузки Расширений 3.1.2</strong> вместе с phpBB 3.1.</p>
+	</div>
+	<div class="row" id="upload_table_wrapper">
+		<table class="upload_table">
+			<tr>
+				<td class='upload_table_header upload_table_feature_header'>
+					<span>&nbsp;</span>
+				</td>
+				<td class='upload_table_header upload_table_software'>
+					<span>phpBB 3.0 с АвтоМОДом</span>
+				</td>
+				<td class='upload_table_header upload_table_software'>
+					<span>phpBB 3.1<br />«из коробки»</span>
+				</td>
+				<td class='upload_table_header upload_table_software'>
+					<span>Загрузка Расширений<br />3.1.1</span>
+				</td>
+				<td class='upload_table_header upload_table_software'>
+					<span>Загрузка Расширений<br />3.1.2</span>
+				</td>
+			</tr>
+			<tr>
+				<td colspan=5 class='upload_table_section'>
+					<span>Загрузка расширений (МОДов в phpBB 3.0)</span>
+				</td>
+			</tr>
+			<tr>
+				<td class='upload_table_feature'>
+					<span>Загрузки с локального компьютера</span>
+				</td>
+				<td class='upload_table_software upload_table_yes'>
+					<i class='fa fa-check'></i>
+				</td>
+				<td class='upload_table_software upload_table_no'>
+					<i class='fa fa-times'></i>
+				</td>
+				<td class='upload_table_software upload_table_yes'>
+					<i class='fa fa-check'></i>
+				</td>
+				<td class='upload_table_software upload_table_yes'>
+					<i class='fa fa-check'></i>
+				</td>
+			</tr>
+			<tr>
+				<td class='upload_table_feature'>
+					<span>Загрузки с удалённых серверов</span>
+				</td>
+				<td class='upload_table_software upload_table_no'>
+					<i class='fa fa-times'></i>
+				</td>
+				<td class='upload_table_software upload_table_no'>
+					<i class='fa fa-times'></i>
+				</td>
+				<td class='upload_table_software upload_table_yes'>
+					<i class='fa fa-check'></i>
+				</td>
+				<td class='upload_table_software upload_table_yes'>
+					<i class='fa fa-check'></i>
+				</td>
+			</tr>
+			<tr>
+				<td class='upload_table_feature'>
+					<span>Загрузки с сайта phpbb.com *</span>
+				</td>
+				<td class='upload_table_software upload_table_no'>
+					<i class='fa fa-times'></i>
+				</td>
+				<td class='upload_table_software upload_table_no'>
+					<i class='fa fa-times'></i>
+				</td>
+				<td class='upload_table_software upload_table_yes'>
+					<i class='fa fa-check'></i>
+				</td>
+				<td class='upload_table_software upload_table_yes'>
+					<i class='fa fa-check'></i>
+				</td>
+			</tr>
+			<tr>
+				<td class='upload_table_feature'>
+					<span>Поддерживаемые форматы пакетных файлов</span>
+				</td>
+				<td class='upload_table_software upload_table_normal'>
+					<span>ZIP</span>
+				</td>
+				<td class='upload_table_software upload_table_normal'>
+					<span>-</span>
+				</td>
+				<td class='upload_table_software upload_table_normal'>
+					<span>ZIP</span>
+				</td>
+				<td class='upload_table_software upload_table_normal'>
+					<span>ZIP</span>
+				</td>
+			</tr>
+			<tr>
+				<td colspan=5 class='upload_table_notes'>
+					<div>* Данная возможность также включает в себя перечень доступных расширений/МОДов, содержащий ссылки на их последние версии.</div>
+				</td>
+			</tr>
+			<tr>
+				<td colspan=5 class='upload_table_section'>
+					<span>Процесс установки</span>
+				</td>
+			</tr>
+			<tr>
+				<td class='upload_table_feature'>
+					<span>Разпознавание загруженных расширений/МОДов</span>
+				</td>
+				<td class='upload_table_software upload_table_yes'>
+					<i class='fa fa-check'></i>
+				</td>
+				<td class='upload_table_software upload_table_yes'>
+					<i class='fa fa-check'></i>
+				</td>
+				<td class='upload_table_software upload_table_yes'>
+					<i class='fa fa-check'></i>
+				</td>
+				<td class='upload_table_software upload_table_yes'>
+					<i class='fa fa-check'></i>
+				</td>
+			</tr>
+			<tr>
+				<td class='upload_table_feature'>
+					<span>Возможность установки расширений/МОДов</span>
+				</td>
+				<td class='upload_table_software upload_table_yes'>
+					<i class='fa fa-check'></i>
+				</td>
+				<td class='upload_table_software upload_table_yes'>
+					<i class='fa fa-check'></i>
+				</td>
+				<td class='upload_table_software upload_table_yes upload_table_note'>
+					<div>
+						<i class='fa fa-check'></i><span class='upload_table_note'>*</span>
+					</div>
+				</td>
+				<td class='upload_table_software upload_table_yes'>
+					<i class='fa fa-check'></i>
+				</td>
+			</tr>
+			<tr>
+				<td class='upload_table_feature'>
+					<span>Резервные копии расширений/МОДов</span>
+				</td>
+				<td class='upload_table_software upload_table_normal'>
+					<span>Файлы, БД</span>
+				</td>
+				<td class='upload_table_software upload_table_normal'>
+					<span>База данных</span>
+				</td>
+				<td class='upload_table_software upload_table_normal'>
+					<span>Файлы</span>
+				</td>
+				<td class='upload_table_software upload_table_normal'>
+					<span>Файлы</span>
+				</td>
+			</tr>
+			<tr>
+				<td colspan=5 class='upload_table_notes'>
+					<div>* После загрузки расширения отображается кнопка со ссылкой на страницу движка.</div>
+				</td>
+			</tr>
+			<tr>
+				<td colspan=5 class='upload_table_section'>
+					<span>Управление расширениями/МОДами</span>
+				</td>
+			</tr>
+			<tr>
+				<td class='upload_table_feature'>
+					<span>Обновление расширений/МОДов</span>
+				</td>
+				<td class='upload_table_software upload_table_yes upload_table_note'>
+					<div>
+						<i class='fa fa-check'></i><span class='upload_table_note'>*</span>
+					</div>
+				</td>
+				<td class='upload_table_software upload_table_yes'>
+					<i class='fa fa-check'></i>
+				</td>
+				<td class='upload_table_software upload_table_yes'>
+					<i class='fa fa-check'></i>
+				</td>
+				<td class='upload_table_software upload_table_yes'>
+					<i class='fa fa-check'></i>
+				</td>
+			</tr>
+			<tr>
+				<td class='upload_table_feature'>
+					<span>Деинсталляция расширений/МОДов</span>
+				</td>
+				<td class='upload_table_software upload_table_yes'>
+					<i class='fa fa-check'></i>
+				</td>
+				<td class='upload_table_software upload_table_yes'>
+					<i class='fa fa-check'></i>
+				</td>
+				<td class='upload_table_software upload_table_no'>
+					<i class='fa fa-times'></i>
+				</td>
+				<td class='upload_table_software upload_table_yes'>
+					<i class='fa fa-check'></i>
+				</td>
+			</tr>
+			<tr>
+				<td class='upload_table_feature'>
+					<span>Возможность работы с неисправными расширениями (отключение/деинсталляция)</span>
+				</td>
+				<td class='upload_table_software upload_table_no'>
+					<i class='fa fa-times'></i>
+				</td>
+				<td class='upload_table_software upload_table_no'>
+					<i class='fa fa-times'></i>
+				</td>
+				<td class='upload_table_software upload_table_no'>
+					<i class='fa fa-times'></i>
+				</td>
+				<td class='upload_table_software upload_table_yes'>
+					<i class='fa fa-check'></i>
+				</td>
+			</tr>
+			<tr>
+				<td class='upload_table_feature'>
+					<span>Возможность удаления директории одного расширения/МОДа с сервера</span>
+				</td>
+				<td class='upload_table_software upload_table_no'>
+					<i class='fa fa-times'></i>
+				</td>
+				<td class='upload_table_software upload_table_no'>
+					<i class='fa fa-times'></i>
+				</td>
+				<td class='upload_table_software upload_table_yes'>
+					<i class='fa fa-check'></i>
+				</td>
+				<td class='upload_table_software upload_table_yes'>
+					<i class='fa fa-check'></i>
+				</td>
+			</tr>
+			<tr>
+				<td class='upload_table_feature'>
+					<span>Возможность удаления директорий сразу нескольких расширений/МОДов с сервера</span>
+				</td>
+				<td class='upload_table_software upload_table_no'>
+					<i class='fa fa-times'></i>
+				</td>
+				<td class='upload_table_software upload_table_no'>
+					<i class='fa fa-times'></i>
+				</td>
+				<td class='upload_table_software upload_table_no'>
+					<i class='fa fa-times'></i>
+				</td>
+				<td class='upload_table_software upload_table_yes'>
+					<i class='fa fa-check'></i>
+				</td>
+			</tr>
+			<tr>
+				<td colspan=5 class='upload_table_notes'>
+					<div>* Сначала вам необходимо деинсталлировать МОД, затем вы можете установить его новую версию.</div>
+				</td>
+			</tr>
+			<tr>
+				<td colspan=5 class='upload_table_section'>
+					<span>Информация и инструменты для расширений/МОДов</span>
+				</td>
+			</tr>
+			<tr>
+				<td class='upload_table_feature'>
+					<span>Стандартная детализированная информация *</span>
+				</td>
+				<td class='upload_table_software upload_table_yes'>
+					<i class='fa fa-check'></i>
+				</td>
+				<td class='upload_table_software upload_table_yes'>
+					<i class='fa fa-check'></i>
+				</td>
+				<td class='upload_table_software upload_table_yes upload_table_note'>
+					<div>
+						<i class='fa fa-check'></i><span class='upload_table_note'>**</span>
+					</div>
+				</td>
+				<td class='upload_table_software upload_table_yes'>
+					<i class='fa fa-check'></i>
+				</td>
+			</tr>
+			<tr>
+				<td class='upload_table_feature'>
+					<span>Содержимое файлов Readme и Changelog</span>
+				</td>
+				<td class='upload_table_software upload_table_no'>
+					<i class='fa fa-times'></i>
+				</td>
+				<td class='upload_table_software upload_table_no'>
+					<i class='fa fa-times'></i>
+				</td>
+				<td class='upload_table_software upload_table_no'>
+					<i class='fa fa-times'></i>
+				</td>
+				<td class='upload_table_software upload_table_yes'>
+					<i class='fa fa-check'></i>
+				</td>
+			</tr>
+			<tr>
+				<td class='upload_table_feature'>
+					<span>Дерево файлов расширения/МОДа</span>
+				</td>
+				<td class='upload_table_software upload_table_no'>
+					<i class='fa fa-times'></i>
+				</td>
+				<td class='upload_table_software upload_table_no'>
+					<i class='fa fa-times'></i>
+				</td>
+				<td class='upload_table_software upload_table_yes'>
+					<i class='fa fa-check'></i>
+				</td>
+				<td class='upload_table_software upload_table_yes'>
+					<i class='fa fa-check'></i>
+				</td>
+			</tr>
+			<tr>
+				<td class='upload_table_feature'>
+					<span>Возможность правильно архивировать файлы расширений/МОДов и скачивать архивные пакеты на локальный компьютер</span>
+				</td>
+				<td class='upload_table_software upload_table_no'>
+					<i class='fa fa-times'></i>
+				</td>
+				<td class='upload_table_software upload_table_no'>
+					<i class='fa fa-times'></i>
+				</td>
+				<td class='upload_table_software upload_table_no'>
+					<i class='fa fa-times'></i>
+				</td>
+				<td class='upload_table_software upload_table_yes'>
+					<i class='fa fa-check'></i>
+				</td>
+			</tr>
+			<tr>
+				<td colspan=5 class='upload_table_notes'>
+					<div>* Эта информация включает в себя номер версии расширения/МОДа, имена его разработчиков, совместимость с текущими версиями PHP и phpBB и прочее.</div>
+					<div>** Показывается только базовая информация (имена разработчиков), другую информацию можно посмотреть в файле composer.json, отображаемом в дереве файлов.</div>
+				</td>
+			</tr>
+			<tr>
+				<td colspan=5 class='upload_table_section'>
+					<span>Управление ZIP-файлами</span>
+				</td>
+			</tr>
+			<tr>
+				<td class='upload_table_feature'>
+					<span>Распознавание ZIP-файлов расширений/МОДов</span>
+				</td>
+				<td class='upload_table_software upload_table_no'>
+					<i class='fa fa-times'></i>
+				</td>
+				<td class='upload_table_software upload_table_no'>
+					<i class='fa fa-times'></i>
+				</td>
+				<td class='upload_table_software upload_table_yes'>
+					<i class='fa fa-check'></i>
+				</td>
+				<td class='upload_table_software upload_table_yes'>
+					<i class='fa fa-check'></i>
+				</td>
+			</tr>
+			<tr>
+				<td class='upload_table_feature'>
+					<span>Возможность сохранить ZIP-файл после загрузки (опционально)</span>
+				</td>
+				<td class='upload_table_software upload_table_no'>
+					<i class='fa fa-times'></i>
+				</td>
+				<td class='upload_table_software upload_table_no'>
+					<i class='fa fa-times'></i>
+				</td>
+				<td class='upload_table_software upload_table_yes'>
+					<i class='fa fa-check'></i>
+				</td>
+				<td class='upload_table_software upload_table_yes'>
+					<i class='fa fa-check'></i>
+				</td>
+			</tr>
+			<tr>
+				<td class='upload_table_feature'>
+					<span>Возможность скачать сохранённый ранее ZIP-файл</span>
+				</td>
+				<td class='upload_table_software upload_table_no'>
+					<i class='fa fa-times'></i>
+				</td>
+				<td class='upload_table_software upload_table_no'>
+					<i class='fa fa-times'></i>
+				</td>
+				<td class='upload_table_software upload_table_yes'>
+					<i class='fa fa-check'></i>
+				</td>
+				<td class='upload_table_software upload_table_yes'>
+					<i class='fa fa-check'></i>
+				</td>
+			</tr>
+			<tr>
+				<td class='upload_table_feature'>
+					<span>Возможность выбора директории для ZIP-файлов расширений/МОДов</span>
+				</td>
+				<td class='upload_table_software upload_table_no'>
+					<i class='fa fa-times'></i>
+				</td>
+				<td class='upload_table_software upload_table_no'>
+					<i class='fa fa-times'></i>
+				</td>
+				<td class='upload_table_software upload_table_yes'>
+					<i class='fa fa-check'></i>
+				</td>
+				<td class='upload_table_software upload_table_yes'>
+					<i class='fa fa-check'></i>
+				</td>
+			</tr>
+			<tr>
+				<td class='upload_table_feature'>
+					<span>Возможность распаковывать ZIP-файлы расширений/МОДов для их подготовки к установке</span>
+				</td>
+				<td class='upload_table_software upload_table_no'>
+					<i class='fa fa-times'></i>
+				</td>
+				<td class='upload_table_software upload_table_no'>
+					<i class='fa fa-times'></i>
+				</td>
+				<td class='upload_table_software upload_table_yes'>
+					<i class='fa fa-check'></i>
+				</td>
+				<td class='upload_table_software upload_table_yes'>
+					<i class='fa fa-check'></i>
+				</td>
+			</tr>
+			<tr>
+				<td class='upload_table_feature'>
+					<span>Удаление ZIP-файлов расширений/МОДов по одному</span>
+				</td>
+				<td class='upload_table_software upload_table_no'>
+					<i class='fa fa-times'></i>
+				</td>
+				<td class='upload_table_software upload_table_no'>
+					<i class='fa fa-times'></i>
+				</td>
+				<td class='upload_table_software upload_table_yes'>
+					<i class='fa fa-check'></i>
+				</td>
+				<td class='upload_table_software upload_table_yes'>
+					<i class='fa fa-check'></i>
+				</td>
+			</tr>
+			<tr>
+				<td class='upload_table_feature'>
+					<span>Удаление нескольких ZIP-файлов одновременно</span>
+				</td>
+				<td class='upload_table_software upload_table_no'>
+					<i class='fa fa-times'></i>
+				</td>
+				<td class='upload_table_software upload_table_no'>
+					<i class='fa fa-times'></i>
+				</td>
+				<td class='upload_table_software upload_table_no'>
+					<i class='fa fa-times'></i>
+				</td>
+				<td class='upload_table_software upload_table_yes'>
+					<i class='fa fa-check'></i>
+				</td>
+			</tr>
+			<tr>
+				<td colspan=5 class='upload_table_notes'>
+					<div>&nbsp;</div>
+				</td>
+			</tr>
+			<tr>
+				<td colspan=5 class='upload_table_section'>
+					<span>Совместимость (или поддержка)</span>
+				</td>
+			</tr>
+			<tr>
+				<td class='upload_table_feature'>
+					<span>Поддержка Noscript (работа без JavaScript)</span>
+				</td>
+				<td class='upload_table_software upload_table_yes'>
+					<i class='fa fa-check'></i>
+				</td>
+				<td class='upload_table_software upload_table_yes'>
+					<i class='fa fa-check'></i>
+				</td>
+				<td class='upload_table_software upload_table_yes'>
+					<i class='fa fa-check'></i>
+				</td>
+				<td class='upload_table_software upload_table_yes'>
+					<i class='fa fa-check'></i>
+				</td>
+			</tr>
+			<tr>
+				<td class='upload_table_feature'>
+					<span>Частичная поддержка JavaScript</span>
+				</td>
+				<td class='upload_table_software upload_table_no'>
+					<i class='fa fa-times'></i>
+				</td>
+				<td class='upload_table_software upload_table_yes upload_table_note'>
+					<div>
+						<i class='fa fa-check'></i><span class='upload_table_note'>*</span>
+					</div>
+				</td>
+				<td class='upload_table_software upload_table_yes upload_table_note'>
+					<div>
+						<i class='fa fa-check'></i><span class='upload_table_note'>**</span>
+					</div>
+				</td>
+				<td class='upload_table_software upload_table_yes'>
+					<i class='fa fa-check'></i>
+				</td>
+			</tr>
+			<tr>
+				<td class='upload_table_feature'>
+					<span>Полная поддержка JavaScript и Ajax</span>
+				</td>
+				<td class='upload_table_software upload_table_no'>
+					<i class='fa fa-times'></i>
+				</td>
+				<td class='upload_table_software upload_table_no'>
+					<i class='fa fa-times'></i>
+				</td>
+				<td class='upload_table_software upload_table_no'>
+					<i class='fa fa-times'></i>
+				</td>
+				<td class='upload_table_software upload_table_yes'>
+					<i class='fa fa-check'></i>
+				</td>
+			</tr>
+			<tr>
+				<td colspan=5 class='upload_table_notes'>
+					<div>* В разделе управления расширениями только ссылка настроек проверки обновлений версий работает за счёт функции JavaScript (кстати, на эту ссылку нельзя нажать, если JavaScript выключен).</div>
+					<div>** JavaScript даёт возможность просмотра дерева файлов, а также улучшает отображение информационной страницы (диалоговое окно) и внешний вид главной формы.</div>
+				</td>
+			</tr>
+			<tr>
+				<td colspan=5 class='upload_table_section'>
+					<span>Дополнительные возможности</span>
+				</td>
+			</tr>
+			<tr>
+				<td class='upload_table_feature'>
+					<span>Стандартные статусные сообщения *</span>
+				</td>
+				<td class='upload_table_software upload_table_yes'>
+					<i class='fa fa-check'></i>
+				</td>
+				<td class='upload_table_software upload_table_yes'>
+					<i class='fa fa-check'></i>
+				</td>
+				<td class='upload_table_software upload_table_yes'>
+					<i class='fa fa-check'></i>
+				</td>
+				<td class='upload_table_software upload_table_yes'>
+					<i class='fa fa-check'></i>
+				</td>
+			</tr>
+			<tr>
+				<td class='upload_table_feature'>
+					<span>Дружественные пользователю статусные сообщения **</span>
+				</td>
+				<td class='upload_table_software upload_table_no'>
+					<i class='fa fa-times'></i>
+				</td>
+				<td class='upload_table_software upload_table_no'>
+					<i class='fa fa-times'></i>
+				</td>
+				<td class='upload_table_software upload_table_no'>
+					<i class='fa fa-times'></i>
+				</td>
+				<td class='upload_table_software upload_table_yes'>
+					<i class='fa fa-check'></i>
+				</td>
+			</tr>
+			<tr>
+				<td colspan=5 class='upload_table_notes'>
+					<div>* Информационные сообщения после успешно выполненных действий либо в случае ошибок.</div>
+					<div>** Стилизованные встроенные самозакрывающиеся сообщения и цветные всплывающие подсказки.</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div class="row row-founders">
+		<h1><i class="fa fa-users fa-fw"></i>Знай основателей</h1>
+		<p>Первая версия Загрузки Расширений была создана в 2014 году <strong>Игорем Лавровым</strong> и <strong>Джоном Пескенсом</strong>.</p>
+	</div>
+	<div class="row row-experience">
+		<h1><i class="fa fa-thumbs-up fa-fw"></i>Используй по максимуму!</h1>
+		<p>Мы надеемся, что вам понравится ваш опыт по установке расширений с помощью Загрузки Расширений.<br />Каждый процесс установки по-настоящему простой, быстрый и информативный!</p>
+	</div>
+	<div class="copyright">
+		<div class="container">
+			<span>© 2015 Игорь Лавров - разработчик сайта и расширения</span>
+		</div>
+	</div>
+</div>
+</body>
+</html>

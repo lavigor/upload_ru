@@ -71,7 +71,11 @@ p {
 	padding: 0;
 }
 
-@media (min-width:992px) {
+#sources #sources-links {
+	padding: 20px 0 0 0;
+}
+
+@media (min-width:1200px) {
 	#sources #sources-links {
 		text-align: right;
 		padding: 10px 30px 0 0;
@@ -140,8 +144,15 @@ p {
 	border-top-right-radius: 20px;
 }
 
+.row-compare {
+	margin: 60px -30px 0px -30px;
+	padding: 60px 0 0px 90px;
+	background-color: #1F4E79;
+	color: #fff;
+}
+
 .row-founders {
-	margin: 30px -30px 0px -30px;
+	margin: 0px -30px 0px -30px;
 	padding: 60px 0 60px 90px;
 	background-color: #fcfed9;
 	color: #a75615;
@@ -154,9 +165,12 @@ p {
 }
 
 #upload_table_wrapper {
-	width: 100%;
+	background-color: #1F4E79;
+	margin: 0 -30px;
+	padding: 0 30px 60px 30px;
+	/*width: 100%;
 	padding: 0 0px;
-	margin: 0 auto;
+	margin: 0 auto;*/
 }
 
 .upload_table {
@@ -167,7 +181,7 @@ p {
 	background-color: #fff;
 }
 
-.upload_table tr:first-child td:first-child {
+/*.upload_table tr:first-child td:first-child {
 	border-top-left-radius: 10px;
 }
 
@@ -181,7 +195,7 @@ p {
 
 .upload_table tr:last-child td:last-child {
 	border-bottom-right-radius: 10px;
-}
+}*/
 
 .upload_table td {
 	vertical-align: middle;
@@ -205,6 +219,7 @@ p {
 .upload_table .upload_table_feature_header {
 	width: 35%;
 	font-weight: bold;
+	background: #1F4E79;
 }
 
 .upload_table .upload_table_feature {
@@ -309,19 +324,23 @@ p {
 		<p>Загрузка Расширений - это инструмент для ваших конференций <strong>phpBB 3.1</strong>, который делает возможной загрузку других расширений без использования FTP. В дополнение к этому данное расширение позволяет управлять загруженными расширениями и их ZIP-файлами, а также просматривать подробную информацию, когда она окажется нужной.</p>
 	</div>
 	<div class="row" id="sources">
-		<div class="col-md-7">
+		<div class="col-lg-7">
 			<h1><i class="fa fa-map-marker fa-fw"></i>Выбери источник</h1>
 			<p>Вы можете загрузить расширение из любого доступного источника.</p>
 		</div>
-		<div class="col-md-5" id="sources-links">
-			<a href="https://www.phpbb.com/customise/db/extension/upload/" class="source source-phpbb"><i class="fa fa-globe fa-fw"></i><span>phpbb.com</span></a><a href="https://github.com/BoardTools/upload" class="source source-github"><i class="fa fa-github fa-fw"></i><span>github.com</span></a>
+		<div class="col-lg-5" id="sources-links">
+			<a href="https://www.phpbb.com/customise/db/extension/upload/" class="source source-phpbb" title="Источник будет доступен позже."><i class="fa fa-globe fa-fw"></i><span>phpbb.com (скоро)</span></a><a href="https://github.com/BoardTools/upload" class="source source-github"><i class="fa fa-github fa-fw"></i><span>github.com</span></a>
 		</div>
 	</div>
 	<div class="row row-inverse">
 		<h1><i class="fa fa-cog fa-fw"></i>Осуществи установку</h1>
-		<p>Вы можете установить Загрузку Расширений на ваши конференции <strong>phpBB 3.1</strong>, следуя инструкциям <a href="https://www.phpbb.com/customise/db/extension/upload/faq">FAQ</a> или <a href="https://github.com/BoardTools/upload/wiki">Wiki</a> (в зависимости от источника, откуда вы скачивали расширение).</p>
+		<p>Вы можете установить Загрузку Расширений на ваши конференции <strong>phpBB 3.1</strong>, следуя инструкциям <a href="https://www.phpbb.com/customise/db/extension/upload/faq">FAQ (будет доступно позже)</a> или <a href="https://github.com/BoardTools/upload/wiki">Wiki</a> (в зависимости от источника, откуда вы скачивали расширение).<br />Также можно скачать файлы <a href="https://github.com/lavigor/upload_ru">русской локализации</a>.<br />Доступные языковые пакеты и инструкции по переводу расширения можно найти на <a href="https://github.com/BoardTools/upload/wiki/Translations">специальной Wiki-странице</a>.</p>
 	</div>
 	<div class="row">
+		<h1><i class="fa fa-tasks fa-fw"></i>Ознакомься с документацией</h1>
+		<p>Загрузка Расширений 3.1.2 содержит встроенное Руководство пользователя, состоящее из ответов на различные вопросы. Наведите курсор на логотип расширения (либо докоснитесь до вертикального многоточия возле него) на странице расширения в Администраторском разделе вашей конференции и нажмите на кнопку со знаком вопроса.</p>
+	</div>
+	<div class="row row-compare">
 		<h1><i class="fa fa-exchange fa-fw"></i>Сравни программные продукты</h1>
 		<p>Ощутите преимущества <strong>Загрузки Расширений 3.1.2</strong> вместе с phpBB 3.1.</p>
 	</div>

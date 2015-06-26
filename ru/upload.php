@@ -2,7 +2,7 @@
 /**
 *
 * @package Upload Extensions
-* @copyright (c) 2014 John Peskens (http://ForumHulp.com) and Igor Lavrov (https://github.com/LavIgor)
+* @copyright (c) 2014 - 2015 Igor Lavrov (https://github.com/LavIgor) and John Peskens (http://ForumHulp.com)
 * @translated by Igor Lavrov (https://github.com/LavIgor)
 * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
@@ -31,6 +31,10 @@ $lang = array_merge($lang, array(
 	'EXT_UPLOAD_INIT_FAIL'				=> 'В процессе инициализации загрузки расширения возникла ошибка.',
 	'EXT_NOT_WRITABLE'					=> array(
 		'error'		=> 'Отсутствуют права на запись для папки ext/. Данные права необходимы для правильной загрузки расширений.',
+		'solution'	=> 'Пожалуйста, исправьте права доступа или настройки и попробуйте снова.',
+	),
+	'EXT_TMP_NOT_WRITABLE'					=> array(
+		'error'		=> 'Отсутствуют права на запись для папки ext/boardtools/upload/tmp. Данные права необходимы для правильной загрузки расширений.',
 		'solution'	=> 'Пожалуйста, исправьте права доступа или настройки и попробуйте снова.',
 	),
 	'EXT_UPLOAD_ERROR'					=> array(
